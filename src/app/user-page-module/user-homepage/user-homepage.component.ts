@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CallDetails } from 'src/app/modal/CallDetails';
 import { UserServiceService } from 'src/app/service/user-service.service';
 
 @Component({
@@ -10,12 +11,16 @@ export class UserHomepageComponent  {
   constructor(private userService: UserServiceService){
     this.user=userService.getFromSession()
     this.plan=this.user.plans
+
   
    
 
   }
   plan:string
   user: any;
+  
+
+  
  
   // getUserDetails() {
   //   const mobileNo = 123456789; // Replace with the actual mobileNo you want to query
