@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+        /* Your custom inline CSS styles for the dropdown menu */
+        .navbar .dropdown .dropdown-menu {
+            background: #27496D; /* Background color for the dropdown menu */
+            padding: 0; /* Reset padding for the dropdown menu */
+            border: none; /* Remove borders */
+          
+        }
+
+        .navbar .dropdown .dropdown-item {
+            color: white; /* Text color for dropdown items */
+            font-weight: 300; /* Font weight for dropdown items */
+            padding: 5px 10px; /* Add padding to dropdown items */
+        }
+
+        .navbar .dropdown .dropdown-item:hover {
+            background-color: #0C7B93; /* Background color on hover */
+            width: 100%; 
+        }
+
+        .navbar .dropdown .dropdown-toggle {
+            color: white; /* Text color for the dropdown toggle button */
+          
+            font-weight: 500; /* Font weight for the dropdown toggle button */
+        }
+
+        .navbar .dropdown:hover .dropdown-menu {
+            width: 100%; /* Expand the dropdown menu on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a class="logo" href="#" style="margin-left: 1rem;">Aetherix</a>
+        <div class="navbar" style="margin-right: 6rem;">
+            <a routerLink="/home" style="    position: relative;
+            font-size: 18px;
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            
+            margin-left: 40px;">Home</a>
+            
+            <div class="dropdown" style="margin-left: 1rem;">
+                
+                    <button class="homebutton "  role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                          </svg>
+                    </button>
+                
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" routerLink="/profile">My Profile</a></li>
+                  
+                  <!-- <li><a class="dropdown-item" routerLink="/mainpage" >sign-out</a></li> -->
+                  <li><a class="dropdown-item" routerLink="/Payment" >Payment</a></li>
+                  <li><a class="dropdown-item" routerLink="/mainpage" >sign-out</a></li>
+                  <li><a class="dropdown-item" routerLink="/Notifications" >Notifications</a></li>
+                  <li><a class="dropdown-item" routerLink="/admin1" >admin</a></li>
+                  <li><a class="dropdown-item" routerLink="/phonecall" >Call</a></li>
+                  <li><a class="dropdown-item" routerLink="/dataUsage" >Data</a></li>
+
+
+
+
+
+               
+                </ul>
+              </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+<router-outlet></router-outlet>
+

@@ -1,0 +1,34 @@
+<app-user-navbar></app-user-navbar>
+<div class="container">
+	<div class="tabs">
+		<input type="radio" id="radio-1" name="tabs" checked />
+		<label class="tab" for="radio-1">Data</label>
+		<input type="radio" id="radio-2" name="tabs" />
+		<label class="tab" for="radio-2">Calls</label>
+		<input type="radio" id="radio-3" name="tabs" />
+		<label class="tab" for="radio-3">Messages</label>
+		<span class="glider"></span>
+	</div>
+</div>
+<div class="details" >
+ 
+    <div class="data" *ngFor="let i of user"  style="display: flex;flex-direction: row;margin-top: 25px;">
+        
+        <div class="imgtag">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill text-start" viewBox="0 0 16 16" >
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+              </svg>
+        </div>
+     
+       <div class="data-val">
+        <span><p>+91-{{i.dialedno}}</p></span>
+         <small>{{i.time| date: 'hh:mm a'}} </small> <small>LOCAL - 4G</small><span style="margin-left: 18rem;margin-bottom: 1rem;">₹ 0.00</span> <br>
+           <small>0 minute {{i.duration}} sec</small> 
+       </div>
+       <hr>
+</div>
+
+
+</div>
+
+
