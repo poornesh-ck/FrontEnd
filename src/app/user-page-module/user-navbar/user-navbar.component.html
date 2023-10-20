@@ -47,6 +47,23 @@
             text-decoration: none;
             
             margin-left: 40px;">Home</a>
+
+<button class="notication" style="margin-left: 35px ;">
+    <svg xmlns="http://www.w3.org/2000/svg"  width="25" height="25" fill="white" viewBox="0 0 512 512" (click)="onclickNotification()"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
+
+</button>
+
+
+
+
+
+            <div class="card-body" style="display: flex; justify-content: space-between; ">
+                <button class="transparent-button-1" style="background:transparent;font-size: 18px;
+                color: white;
+                font-weight: 500;
+                text-decoration: none;border: none; margin-left: 20px;width: 100px;justify-content: center;align-items: center;"  (click)="updatecycyle()">Demo</button>
+                <!-- <button class="transparent-button-1" style="margin-right: 30px;width: 200px;justify-content: center;align-items: center;" routerLink="/plans">View Plan</button> -->
+            </div>
             
             <div class="dropdown" style="margin-left: 1rem;">
                 
@@ -62,12 +79,15 @@
                   <li><a class="dropdown-item" routerLink="/profile">My Profile</a></li>
                   
                   <!-- <li><a class="dropdown-item" routerLink="/mainpage" >sign-out</a></li> -->
-                  <li><a class="dropdown-item" routerLink="/Payment" >Payment</a></li>
-                  <li><a class="dropdown-item" routerLink="/mainpage" >sign-out</a></li>
-                  <li><a class="dropdown-item" routerLink="/Notifications" >Notifications</a></li>
+                  <li><a class="dropdown-item" routerLink="/plans" >Payment</a></li>
+                  <li><a class="dropdown-item" (click)="signOut()" >sign-out</a></li>
                   <li><a class="dropdown-item" routerLink="/admin1" >admin</a></li>
                   <li><a class="dropdown-item" routerLink="/phonecall" >Call</a></li>
                   <li><a class="dropdown-item" routerLink="/dataUsage" >Data</a></li>
+                  <li><a class="dropdown-item" routerLink="/message" >Message</a></li>
+                  <li><a class="dropdown-item" routerLink="/contactus" >Contact us</a></li>
+
+
 
 
 
@@ -81,5 +101,26 @@
     </div>
 </body>
 </html>
+
+<div class="notification-banner" *ngIf="notication" style="display: flex;flex-direction: column;">
+    <div class="accordion" id="accordionExample" *ngFor="let i of notifyData">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 29rem;">
+              {{i.alert}}
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>{{i.message}} <span ><button class="delete" (click)="onDeleteNotification(i)"><svg style="margin-left: 120px;" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM152 232H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg></button></span></strong>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+</div>
+  
+
+
 <router-outlet></router-outlet>
 

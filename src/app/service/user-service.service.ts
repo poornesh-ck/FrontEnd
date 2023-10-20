@@ -3,13 +3,18 @@ import { Injectable } from '@angular/core';
 import { OtpRequest } from 'src/app/modal/OtpRequest';
 import { Status } from '../modal/Status';
 import { Observable } from 'rxjs';
-import { CallDetails } from '../modal/CallDetails';
+import {  CallsDet } from '../modal/CallsDet';
+import { DataUtilization } from '../modal/DataUtilization';
+import { Notification } from '../modal/notification';
+import { MessageUtil } from '../modal/message';
+import { FeedBack } from '../modal/Feedback';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
   url='http://localhost:8484/admin'
+  userUrl='http://localhost:8484/User'
   st:any
   
   constructor(private http: HttpClient) { }
@@ -39,14 +44,23 @@ export class UserServiceService {
     return this.http.post<Status>(this.url+"/login-validate",otp);
 
   }
+  billUrl='http://localhost:8484/bill'
+  getBillDetails(mobileNo: number):Observable<any>{
+    const url = `${this.billUrl}/BillStatus/${mobileNo}`;
+    return this.http.get<any>(url);
+
+  }
 
 
-  getUserDetails(mobileNo: number): Observable<any> {
+  getUseDetails(mobileNo: number): Observable<any> {
     const url = `${this.url}/users/${mobileNo}`;
     return this.http.get<any>(url);
   }
   addToSession(user:any){
-   
+      console.log('this id from the setting data in session');
+      console.log(user);
+      
+      
       sessionStorage.setItem('userData', JSON.stringify(user));
       console.log(user); 
       console.log(user.fname)
@@ -66,7 +80,7 @@ export class UserServiceService {
   }
 
 
-  addcalls(call:CallDetails){
+  addcalls(call:CallsDet){
     return this.http.post<Status>(this.url+"/calldetails",call)
    }  
   
@@ -74,5 +88,72 @@ export class UserServiceService {
     const url = `${this.url}/callHistory/${mobileNo}`;
     return this.http.get<any>(url);
   }
+  // data
+  getdataUtilHistory(mobileNo:number):Observable<any>{
+    const url = `${this.userUrl}/datautilHistory/${mobileNo}`;
+    return this.http.get<any>(url);
+
+  }
+
+  dataUtilization(dUtil:DataUtilization){
+    return this.http.post<Status>(this.userUrl+"/DataUtil",dUtil)
+
+  }
+  // message
+  messageUtil(mUtil:MessageUtil){
+    return this.http.post<Status>(this.userUrl+"/Message",mUtil)
+  }
+
+  MessageDetails(mobileNo:number):Observable<any>{
+    const url = `${this.userUrl}/MessageDetails/${mobileNo}`;
+    return this.http.get<any>(url);
+
+  }
+  // feedback
+  feedbackUrl='http://localhost:8484/FeedBack'
+  feedback(feedBack:FeedBack){
+    return this.http.post<Status>(this.feedbackUrl+"/feedbacksave",feedBack)
+
+  }
+
+
+
+  updatePayment(mobileNo: number): Observable<any>{
+    const url = `${this.billUrl}/updatepaymentStatus`;
+    return this.http.put(url,mobileNo);
+
+  }
+  updateCycle(mobileNo: number){
+
+    console.log(typeof mobileNo);
+    
+    // const url = `${this.billUrl}/updatecycle`;
+    return this.http.put('http://localhost:8484/bill/updatecycle',mobileNo);
+
+  }
+  getbillHistory(mobileNo: number): Observable<any> {
+    const url = `${this.billUrl}/BillHistory/${mobileNo}`;
+    return this.http.get<any>(url);
+  }
+
+  // notifiction
+  notificationpush(notify:Notification){
+    return this.http.post<Status>(this.userUrl+"/Notifypost",notify)
+
+  }
+
+  getNotification(mobileNo: number): Observable<any> {
+    const url = `${this.userUrl}/Notification/${mobileNo}`;
+    return this.http.get<any>(url);
+  }
+
+  deleteNotification(notifyName:number){
+    const url = `${this.userUrl}/deleteMapping/${notifyName}`;
+    return this.http.delete<any>(url);
+
+
+  }
+
+
 
 }

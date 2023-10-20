@@ -1,0 +1,54 @@
+<app-user-navbar> 
+</app-user-navbar>
+<p style="font-size: 50px;margin-top: 8rem;margin-left: 15px;text-align: center;"><b>SMS</b></p>
+
+<div class="card" style="display: flex;justify-content: center;margin-top: 2rem;width: 60%;height: 25rem;margin-left: 18rem; border-radius: 30px;
+ box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);">
+    
+    <div class="card-body">
+        <div class="card" style="display: flex;justify-content: center;width: 95%;height: 20px;margin-left: 32px;border-radius: 20px;
+ padding: 0%;border: none;">
+    <div class="card-body" style="display: flex;flex-direction: column;justify-content: space-between;margin-left: 10rem;">
+        <div style="margin-top: 325px;">
+          <label>Receiver Number</label>
+          <input type="number" [(ngModel)]="receverNo"><span>
+            <!--  -->
+           
+          </span>
+
+        </div>
+        <div style="margin-top: 20px;">
+            <label>Message Content</label>
+            <input type="text" [(ngModel)]="messageBody"  >
+            <!-- -->
+            <!-- <p><b>{{bill.duedate}}</b></p> -->
+        </div>
+        <div style="margin-top: 20px;">
+            <label>Date</label>
+            <input type="text" value="{{date|date:'yyyy-MM-dd'}}"  disabled>
+            <!-- -->
+            <!-- <p><b>{{bill.duedate}}</b></p> -->
+        </div>
+        <div style="margin-top: 20px;">
+          <label>Session Time</label>
+          <input type="text" value="{{time}}" disabled> 
+          <!-- [(ngModel)]="time" -->
+
+            <!-- <p><b>{{bill.currentcharge |currency:'INR'}}</b></p> -->
+        </div>
+        <div style="margin-left: 18rem;">
+          <button type="button" class="btn" style="background-color: #0C7B93;color: white;border-radius: 20px;margin-top: 10px;" (click)=" onClick()" >Send SMS</button>
+        </div>
+        <!-- <div>
+            <button type="button" class="btn" style="background-color: #0C7B93;color: white;border-radius: 20px;margin-top: 10px;" >Pay Now</button>
+         
+        </div> -->
+      
+    </div>
+    
+
+  </div >
+    
+    </div>
+  </div>
+

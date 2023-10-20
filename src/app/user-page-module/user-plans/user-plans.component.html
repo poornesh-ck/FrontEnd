@@ -1,105 +1,5 @@
-<!-- <div class="cards">
-    <div class="cards">
-    <li>
-        <div class="cards">
-            
-      <a href="" class="card">
-  
-        
-        <div class="card__overlay">
-           
-          <div class="card__header">
-            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-            <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
-            <div class="card__header-text">
-              <h3 class="card__title">Jessica Parker</h3>            
-              <span class="card__status">1 hour ago</span>
-            </div>
-          </div>
-          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-        </div>
-      </a>  
-  </div>
-    </li>
-</div>
 
-    <li>
-      <a href="" class="card">
-        <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
-        <div class="card__overlay">        
-          <div class="card__header">
-            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-            <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
-            <div class="card__header-text">
-              <h3 class="card__title">kim Cattrall</h3>
-              <span class="card__status">3 hours ago</span>
-            </div>
-          </div>
-          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="" class="card">
-        <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
-        <div class="card__overlay">
-          <div class="card__header">
-            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-            <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
-            <div class="card__header-text">
-              <h3 class="card__title">Jessica Parker</h3>
-              <span class="card__tagline">Lorem ipsum dolor sit amet consectetur</span>            
-              <span class="card__status">1 hour ago</span>
-            </div>
-          </div>
-          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="" class="card">
-        <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
-        <div class="card__overlay">
-          <div class="card__header">
-            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-            <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
-            <div class="card__header-text">
-              <h3 class="card__title">kim Cattrall</h3>
-              <span class="card__status">3 hours ago</span>
-            </div>          
-          </div>
-          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-        </div>
-      </a>
-    </li>    
-</div> -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-    <title>Card Carousel</title>
-</head>
-<body>
-    <div class="card-carousel">
-        <div class="card">
-            <div class="card-content">
-                <img src="card-image.jpg" alt="Card Image">
-                <h2>₹399</h2>
-                <p>VALIDITY: Bill Cycle</p>
-                <p>BENEFITS: 75 GB</p>
-                <p>SUBSCRIPTIONS: Subscription Item Subscription Item +1 more</p>
-                <button>Get Now</button>
-            </div>
-        </div>
-        <!-- Add more card items here -->
-    </div>
-</body>
-</html>
-
-₹
-399
+<!-- 399
 image
 
 View details
@@ -111,4 +11,28 @@ SUBSCRIPTIONS
 Subscription ItemSubscription Item
 +1 more
 
-Get Now
+Get Now  -->
+<app-user-navbar></app-user-navbar>
+<div class="main-container1 row" >
+  <div class="card-1" *ngFor="let i of plans"  >
+
+    <div style="margin-top: 55px;margin-left: 30px;font-size: 1.7em;"><p><b>{{i.amaount |currency:'INR'}}</b><span><small style="font-size: 0.35em;color: red;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-left: 3rem;text-align: left;">UNLIMITED TRUE 5G DATA</small></span></p>
+      <div style="margin-top: 50px;text-align: left;font-size: 0.5em;"><p>VALIDITY <span style="margin-left: 80px;">BENEFITS</span></p></div>
+      <div style="margin-top: 10px;text-align: left;font-size: 0.5em;"><p><b>Bill Cycle <span style="margin-left: 80px;">{{i.data}} GB</span></b></p></div>
+      <hr style="margin-top: 40px;">      
+      <div style="margin-top: 20px;text-align: left;font-size: 0.5em;"><p>SUBSCRIPTIONS </p></div>
+      <div style="margin-top: 30px;text-align: left;font-size: 0.5em;"><p><svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 0.2rem;" height="1.5em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM48 368v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368c0-8.8-7.2-16-16-16H416zM48 240v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zm368-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16H416zM48 112v32c0 8.8 7.2 16 16 16H96c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zM416 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H416zM160 128v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H192c-17.7 0-32 14.3-32 32zm32 160c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V320c0-17.7-14.3-32-32-32H192z"/></svg>
+        
+       <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 0.2rem;" height="1.5em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 64V352H576V64H64zM0 64C0 28.7 28.7 0 64 0H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM128 448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+       <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z"/></svg> </p></div>
+        <span style="text-align: left;font-size: 0.5em;margin-left: 16rem;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{i.Ott}}</span>
+    </div>
+   
+    <!--     
+    <p></p>
+    <p>{{i.sms}}</p>
+    <p>{{i.Ott}}</p> -->
+  </div>
+  
+  
+</div>

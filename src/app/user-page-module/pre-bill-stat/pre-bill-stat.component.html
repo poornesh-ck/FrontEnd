@@ -1,0 +1,36 @@
+
+<app-user-navbar> 
+</app-user-navbar>
+<p style="font-size: 50px;margin-top: 12rem;margin-left: 15px;"><b>Active Bill</b></p>
+
+<div class="card" style="display: flex;justify-content: center;margin-top: 6rem;width: 95%;margin-left: 32px;border-radius: 30px;
+ box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);">
+    
+    <div class="card-body">
+        <div class="card" style="display: flex;justify-content: center;width: 95%;margin-left: 32px;border-radius: 20px;
+ padding: 0%;border: none;">
+    <div class="card-body" style="display: flex;flex-direction: row;justify-content: space-between;">
+        <div>
+            <p>{{bill.service}}</p>
+            <p><b>{{bill.mobileno}}</b></p>
+        </div>
+        <div>
+            <p>Due Date</p>
+            <p><b>{{bill.duedate}}</b></p>
+        </div>
+        <div>
+            <p>Amount Due</p>
+            <p><b>{{bill.currentcharge |currency:'INR'}}</b></p>
+        </div>
+        <div>
+            <button type="button" class="btn" style="background-color: #0C7B93;color: white;border-radius: 20px;margin-top: 10px;"[disabled]="user.isfresher||value"  routerLink="/paymentsummary">Pay Now</button>
+         
+        </div>
+      
+    </div>
+    <a  style="display: contents; text-align: right;color: blue;"routerLink="/paymentsummary"><u>ViewDetails -></u></a> 
+
+  </div >
+    
+    </div>
+  </div>

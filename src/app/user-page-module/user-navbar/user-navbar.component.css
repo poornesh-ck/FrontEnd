@@ -102,3 +102,37 @@
     outline: none;
     background-color: transparent;
 }
+.notication{
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+}
+.notification-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:transparent;
+    color: #fff;
+    padding: 10px;
+    z-index: 1000; /* Adjust z-index as needed */
+    width: 30.5rem;
+    /* height: 35rem; */
+    margin-top: 5rem;
+    display: flex;
+    margin-left: 38rem;
+    border-radius: 20px;
+    border: solid black 2px;
+    box-shadow: 0 0 5px 0 rgba(24, 94, 224, 0.15), 0 8px 18px 0 rgba(24, 94, 224, 0.15);
+
+   
+  }
+  .delete{
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+  }
+  
+

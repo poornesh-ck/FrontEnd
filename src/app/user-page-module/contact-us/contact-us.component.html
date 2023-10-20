@@ -1,0 +1,36 @@
+<app-user-navbar></app-user-navbar>
+<body>
+<section>
+    <div class="cardd">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <div>
+                <h2 style="margin-left: 12rem;">CONTACT US</h2>
+              </div>
+              <form method="post" data-form-title="CONTACT US">
+                <input type="hidden" data-form-email="true">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" required="" placeholder="Name*" data-form-field="Name" style="margin-left: 5rem;" [(ngModel)]="name">
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" required="" placeholder="Email*" data-form-field="Email" style="margin-left: 5rem;margin-top: 2rem;" [(ngModel)]="email">
+                </div>
+                <div class="form-group">
+                  <input type="tel" class="form-control" name="phone" placeholder="Phone" data-form-field="Phone" style="margin-left: 5rem;margin-top: 2rem;" [(ngModel)]="phoneno">
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" placeholder="Message" rows="7" data-form-field="Message" style="margin-left: 5rem;margin-top: 2rem;" [(ngModel)]="message"></textarea>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-lg " style="margin-left: 10rem;margin-top: 2rem;background-color: #0C7B93;margin-bottom: 2rem;" (click)="onclick()">CONTACT US</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

@@ -21,10 +21,10 @@
                     <div class="list-group list-group-flush account-settings-links">
                         <a class="list-group-item list-group-item-action active" data-toggle="list"
                             href="#account-general" style="background-color: #00A8CC;color: white;">General</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-change-password">Change password</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-info">Info</a>
+                        <!-- <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-change-password">Change password</a> -->
+                        <!-- <a class="list-group-item list-group-item-action" data-toggle="list"
+                            href="#account-info">Info</a> -->
                         <!-- <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-social-links">Social links</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
@@ -51,16 +51,16 @@
                             <hr class="border-light m-0">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control mb-1" value="nmaxwell" disabled>
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control mb-1" value="{{user.fname}}" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" value="Nelle Maxwell" disabled>
+                                    <label class="form-label"> Last Name</label>
+                                    <input type="text" class="form-control" value="{{user.lname}}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control mb-1" value="nmaxwell@mail.com" disabled>
+                                    <input type="text" class="form-control mb-1" value="{{user.email}}" disabled>
                                     <div class="alert alert-warning mt-3">
                                         Your email is not confirmed. Please check your inbox.<br>
                                         <a href="javascript:void(0)">Resend confirmation</a>
@@ -68,33 +68,35 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Phone-number</label>
-                                    <input type="text" class="form-control mb-1" value="9025678191" disabled>
+                                    <input type="text" class="form-control mb-1" value="{{user.mobileno}}" disabled>
                                    
                                 </div>
                                 <div class="card-body pb-2">
                                     <div class="form-group">
                                         <label class="form-label">Address</label>
-                                        <textarea class="form-control"
-                                            rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium, turpis dolor molestie diam, ut lacinia diam risus eleifend sapien. Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus non, pulvinar risus.</textarea>
+                                        <textarea class="form-control" disabled
+                                            rows="5">{{user.address}}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Birthday</label>
-                                        <input type="text" class="form-control" value="May 3, 1995">
+                                        <input type="text" class="form-control" value="{{user.dob}}" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Country</label>
-                                        <select class="custom-select">
+                                        <input type="text" class="form-control" value="India" disabled>
+
+                                        <!-- <select class="custom-select">
                                             <option>USA</option>
                                             <option selected>Canada</option>
                                             <option>UK</option>
                                             <option>Germany</option>
                                             <option>France</option>
-                                        </select>
+                                        </select> -->
                                     </div>
                                 </div>  
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="account-change-password">
+                        <!-- <div class="tab-pane fade" id="account-change-password">
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Current password</label>
@@ -109,8 +111,8 @@
                                     <input type="password" class="form-control">
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-info">
+                        </div> -->
+                        <!-- <div class="tab-pane fade" id="account-info">
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Bio</label>
@@ -144,8 +146,8 @@
                                     <input type="text" class="form-control" value>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-social-links">
+                        </div> -->
+                        <!-- <div class="tab-pane fade" id="account-social-links">
                             <div class="card-body pb-2">
                                 <div class="form-group">
                                     <label class="form-label">Twitter</label>
@@ -168,8 +170,8 @@
                                     <input type="text" class="form-control" value="https://www.instagram.com/user">
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-connections">
+                        </div> -->
+                        <!-- <div class="tab-pane fade" id="account-connections">
                             <div class="card-body">
                                 <button type="button" class="btn btn-twitter">Connect to
                                     <strong>Twitter</strong></button>
@@ -195,7 +197,7 @@
                                 <button type="button" class="btn btn-instagram">Connect to
                                     <strong>Instagram</strong></button>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="tab-pane fade" id="account-notifications">
                             <div class="card-body pb-2">
                                 <h6 class="mb-4">Activity</h6>

@@ -13,14 +13,49 @@ export class UsagePageComponent {
       this.user = data;
       // this.user.addToSession(this.user)
       // sessionStorage.setItem('userData', JSON.stringify(this.user));
+
        console.log(this.user); 
       // console.log(this.user.fname)
     });
+    userv.getdataUtilHistory(this.userdetails.mobileno).subscribe((data) =>{
+      this.dataUtil=data
+      console.log(this.dataUtil); 
+
+
+    })
+    userv.MessageDetails(this.userdetails.mobileno).subscribe((data) =>{
+      this.MessageUtil=data
+      console.log(this.MessageUtil); 
+
+
+    })
 
   }
   
   userdetails:any
   user:any;
+  dataUtil:any
+  MessageUtil:any
+  dataTab:boolean=true
+  callTab!:boolean
+  msgTab!:boolean
+  data(){
+    this.dataTab=true
+    this.callTab=false
+    this.msgTab=false
+  }
+  call(){
+    this.dataTab=false
+    this.callTab=true
+    this.msgTab=false
+  }
+  msg(){
+    this.dataTab=false
+    this.callTab=false
+    this.msgTab=true
+  }
+
+ 
  
 
 }

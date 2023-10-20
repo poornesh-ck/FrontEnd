@@ -1,12 +1,19 @@
 
 
          
-    <h2 class="title">Sign up</h2>
 
-    <form class="custom-form" [formGroup]="UserForm" novalidate>
-      <div class="card-1 p-4" style="width: 25rem; ">
+   
+    
+<div class="whole-container">
+  <p style="margin-left: 70rem;color: blue;margin-top: 3rem; "routerLink="/FeedBack">View Feed-></p>
+  <div class="cardd" style="display: flex;justify-content: center;margin-top: 3rem;">
+    <!-- <p sty>View Feed-></p> -->
+ 
+    <form class="custom-form" style="background-color: white;" [formGroup]="UserForm" novalidate>
+      <h2 class="title" style="text-align: center;">Sign up</h2>
+      <div class="card-1 p-4" style="width: 25rem;margin-top: 5px;">
         <div class="row g-3">
-          <div class="col" style="margin-right: 15px;">
+          <div class="col" style="margin-right: 15px;" style="background-color: transparent;">
             <label for="validationCustom01" class="form-label">First name</label>
             <input type="text" class="form-control"  aria-label="First name" formControlName="fname" [class.is-invalid]="fname.invalid && fname.touched ">
           </div>
@@ -15,8 +22,9 @@
             <input type="text" class="form-control"  aria-label="Last name" formControlName="lname" [class.is-invalid]="lname.invalid && lname.touched " >
           </div>
         </div>
-        <div>
-            <input type="date" formControlName="dob">
+        <div style="margin-top: 15px;">
+          <label for="validationCustom02" class="form-label">DOB</label>
+            <input type="date" formControlName="dob" style="margin-left: 10px;">
         </div>
         
         
@@ -76,10 +84,13 @@
     </div>
       
      
-    
-      <input type="submit" class="btn" value="Sign up" (click)="submit()" />
+     <!-- <button class="transparent-button-1" style="background: #0C7B93;color: black;margin-left: 30px;width: 200px;justify-content: center;align-items: center;" routerLink="/usage">Check usage</button> -->
+      <input type="submit" class="btn" value="Sign up" (click)="submit()" style="background: #0C7B93;color: black;    margin-left: 8rem;
+      margin-top: 1rem;" />
     </div>
   </form>
+  </div>
  
+</div>
          
 

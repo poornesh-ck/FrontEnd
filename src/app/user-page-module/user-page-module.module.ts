@@ -11,6 +11,11 @@ import { UsagePageComponent } from './usage-page/usage-page.component';
 import { UserPlansComponent } from './user-plans/user-plans.component';
 import { PhonecallComponent } from './phonecall/phonecall.component';
 import { DataUsageComponent } from './data-usage/data-usage.component';
+import { BillsummaryComponent } from './billsummary/billsummary.component';
+import { PreBillStatComponent } from './pre-bill-stat/pre-bill-stat.component';
+import { FormsModule } from '@angular/forms';
+import { MessagingUsageComponent } from './messaging-usage/messaging-usage.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 
@@ -25,11 +30,19 @@ import { DataUsageComponent } from './data-usage/data-usage.component';
     UserPlansComponent,
     PhonecallComponent,
     DataUsageComponent,
+    BillsummaryComponent,
+    PreBillStatComponent,
+    MessagingUsageComponent,
+    ContactUsComponent,
     
   ],
   imports: [
     CommonModule,
-    UserPageModuleRoutingModule
+    UserPageModuleRoutingModule,FormsModule
+  ],
+  exports:[
+    UserNavbarComponent,
+
   ]
 })
 export class UserPageModuleModule { }

@@ -1,16 +1,16 @@
 <app-user-navbar></app-user-navbar>
 <div class="container">
 	<div class="tabs">
-		<input type="radio" id="radio-1" name="tabs" checked />
-		<label class="tab" for="radio-1">Data</label>
-		<input type="radio" id="radio-2" name="tabs" />
+		<input type="radio" id="radio-1" name="tabs" (click)="data()" />
+		<label class="tab" for="radio-1" >Data</label>
+		<input type="radio" id="radio-2" name="tabs"  (click)="call()" />
 		<label class="tab" for="radio-2">Calls</label>
-		<input type="radio" id="radio-3" name="tabs" />
+		<input type="radio" id="radio-3" name="tabs" (click)="msg()"/>
 		<label class="tab" for="radio-3">Messages</label>
 		<span class="glider"></span>
 	</div>
 </div>
-<div class="details" >
+<div class="details" *ngIf="callTab">
  
     <div class="data" *ngFor="let i of user"  style="display: flex;flex-direction: row;margin-top: 25px;">
         
@@ -22,7 +22,7 @@
      
        <div class="data-val">
         <span><p>+91-{{i.dialedno}}</p></span>
-         <small>{{i.time| date: 'hh:mm a'}} </small> <small>LOCAL - 4G</small><span style="margin-left: 18rem;margin-bottom: 1rem;">₹ 0.00</span> <br>
+         <small>{{i.time}} </small> <small>LOCAL - 4G</small><span style="margin-left: 16rem;margin-bottom: 1rem;">₹ 0.00</span> <br>
            <small>0 minute {{i.duration}} sec</small> 
        </div>
        <hr>
@@ -30,5 +30,46 @@
 
 
 </div>
+<div class="details" *ngIf="dataTab">
+ 
+    <div class="data" *ngFor="let i of dataUtil"  style="display: flex;flex-direction: row;margin-top: 25px;">
+        
+        <div class="imgtag1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill text-start" viewBox="0 0 16 16" >
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+              </svg>
+        </div>
+     
+       <div class="data-val">
+        <span><p><b>{{i.data}} <a style="font-size: 18px;">{{i.type|uppercase }} </a> </b><span style="margin-left: 19.3rem;margin-bottom: 1rem;">₹ 0.00</span></p></span>
+         <small>Session end time:</small> <small>{{i.time}}</small> <br>
+           <small></small> 
+       </div>
+       <hr>
+</div>
+
+
+</div>
+<div class="details" *ngIf="msgTab">
+ 
+    <div class="data" *ngFor="let i of MessageUtil"  style="display: flex;flex-direction: row;margin-top: 25px;">
+        
+        <div class="imgtag1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill text-start" viewBox="0 0 16 16" >
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+              </svg>
+        </div>
+     
+       <div class="data-val">
+        <span><p><b>{{i.recieverno}} <a style="font-size: 18px;">{{i.type|uppercase }} </a> </b><span style="margin-left: 19.3rem;margin-bottom: 1rem;">₹ 0.00</span></p></span>
+         <small>{{i.time}} </small> <small>Local </small> <br>
+           <small></small> 
+       </div>
+       <hr>
+</div>
+
+
+</div>
+
 
 

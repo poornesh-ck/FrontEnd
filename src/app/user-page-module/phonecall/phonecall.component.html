@@ -4,14 +4,14 @@
 
 
 <div class="container-1 " style="align-items: center;justify-content: center;display: flex;margin-top: 6rem;margin-left: 30rem;background-color: #142850;border-radius: 20px;width: 22rem;">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" style="height: 32rem;">
     <!-- <p style="text-align: center;">{{ pickedNumbers }}</p> -->
     <h3 id="showPicked" class="text-center " style="color: white;">
         {{ pickedNumbers }}
       </h3>
       <p class="text-center "style="color: white;">{{callstatus}}</p>
     <h3  *ngIf="key" id="showPicked" class="text-center "style="color: white;">
-        {{ callingDuration  }}
+        {{ formatTimer()  }}
       </h3>
       
     <div class="phone" style="width: 20rem ;height: 28rem;">

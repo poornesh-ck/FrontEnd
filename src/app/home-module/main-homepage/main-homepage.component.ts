@@ -148,7 +148,7 @@ export class MainHomepageComponent {
   LoginPage(){
     this.userv.loginOtp(this.phnNo.value).subscribe((msg:Status)=>{this.st=msg.status}
     )
-    timer(4000).subscribe(()=>{
+    timer(9000).subscribe(()=>{
       console.log(this.st);
       if(this.st=='Deliverd'){
         this.optPage()
@@ -171,20 +171,25 @@ export class MainHomepageComponent {
   user:any;
   getUserDetails() {
    
-    this.userv.getUserDetails(this.phnNo.value).subscribe((data) => {
+    console.log('into the get user details');
+    
+    this.userv.getUseDetails(this.phnNo.value).subscribe((data) => {
       this.user = data;
-      this.user.addToSession(this.user)
+      this.userv.addToSession(this.user)
       // sessionStorage.setItem('userData', JSON.stringify(this.user));
       // console.log(this.user); 
       // console.log(this.user.fname)
     });
+   
   }
 
   LoginValidated(){
     this.userv.loginValidate(this.otp).subscribe((msg)=>{this.st = msg.status})
-    timer(4000).subscribe(()=>{
+    timer(9000).subscribe(()=>{
       console.log(this.st);
       if(this.st=='Otp valid'){
+        console.log('sending data');
+        
         this.getUserDetails()
         
         Swal.fire(

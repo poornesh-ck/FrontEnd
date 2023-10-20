@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CallDetails } from 'src/app/modal/CallDetails';
+import { timer } from 'rxjs';
 import { UserServiceService } from 'src/app/service/user-service.service';
 
 @Component({
@@ -11,13 +11,31 @@ export class UserHomepageComponent  {
   constructor(private userService: UserServiceService){
     this.user=userService.getFromSession()
     this.plan=this.user.plans
-
-  
+    this.paymentstatus=this.user.paymentstatus
+    this.mobno=this.user.mobileno
+    this.userService.getUseDetails(this.mobno).subscribe((data) => {
+      this.datavalue = data;
+      console.log(this.datavalue.dataleft)
    
+    });
+   
+  
+    if(this.paymentstatus=='paid'){
+  
+      this.value=true
+      console.log(this.value)
+    }else{
+      this.value=false
+    }
 
   }
+  paymentstatus:any
+  mobno:number
   plan:string
   user: any;
+  datavalue:any
+  value:any
+  
   
 
   

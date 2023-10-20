@@ -10,6 +10,10 @@ import { UsagePageComponent } from './usage-page/usage-page.component';
 import { AddUserComponent } from '../admin/add-user/add-user.component';
 import { PhonecallComponent } from './phonecall/phonecall.component';
 import { DataUsageComponent } from './data-usage/data-usage.component';
+import { BillsummaryComponent } from './billsummary/billsummary.component';
+import { PreBillStatComponent } from './pre-bill-stat/pre-bill-stat.component';
+import { MessagingUsageComponent } from './messaging-usage/messaging-usage.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -48,6 +52,18 @@ const routes: Routes = [
   ,{
     path:'dataUsage',
     component:DataUsageComponent
+  },{
+    path:'paymentsummary',
+    component:BillsummaryComponent
+  },{
+    path:'prebill',
+    component:PreBillStatComponent}
+  ,{
+    path:'message',
+    component:MessagingUsageComponent
+  },{
+    path:'contactus',
+    component:ContactUsComponent
   }
 
 

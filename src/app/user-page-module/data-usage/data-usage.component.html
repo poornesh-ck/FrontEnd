@@ -1,22 +1,62 @@
-<!-- <div class="circ">
-    <div class="load">Loading . . . </div>
-    <div class="hands"></div>
-    <div class="body"></div>
-    <div class="head">
-      <div class="eye"></div>
+<app-user-navbar> 
+</app-user-navbar>
+<p style="font-size: 50px;margin-top: 8rem;margin-left: 15px;text-align: center;"><b>Data</b></p>
+
+<div class="card" style="display: flex;justify-content: center;margin-top: 2rem;width: 60%;height: 25rem;margin-left: 18rem; border-radius: 30px;
+ box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);">
+    
+    <div class="card-body">
+        <div class="card" style="display: flex;justify-content: center;width: 95%;height: 20px;margin-left: 32px;border-radius: 20px;
+ padding: 0%;border: none;">
+    <div class="card-body" style="display: flex;flex-direction: column;justify-content: space-between;margin-left: 10rem;">
+        <div style="margin-top: 325px;">
+          <label>Data Used</label>
+          <input type="number" [(ngModel)]="data"><span>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Mb" [(ngModel)]="type">
+              <label class="form-check-label" for="flexRadioDefault2">
+                Mb
+              </label>
+            </div>
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Gb" [(ngModel)]="type">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Gb
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Kb" [(ngModel)]="type">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Kb
+            </label>
+          </div>
+          </span>
+            <!-- <p>{{bill.service}}</p> -->
+            <!-- <p><b>{{bill.mobileno}}</b></p> -->
+        </div>
+        <div style="margin-top: 20px;">
+            <label>Date</label>
+            <input type="text" value="{{date|date:'yyyy-MM-dd'}}" disabled>
+            <!-- <p><b>{{bill.duedate}}</b></p> -->
+        </div>
+        <div style="margin-top: 20px;">
+          <label>Session Time</label>
+          <input type="text" [(ngModel)]="time" disabled>
+
+            <!-- <p><b>{{bill.currentcharge |currency:'INR'}}</b></p> -->
+        </div>
+        <div style="margin-left: 18rem;">
+          <button type="button" class="btn" style="background-color: #0C7B93;color: white;border-radius: 20px;margin-top: 10px;" (click)="onClick()" >Use Data</button>
+        </div>
+        <!-- <div>
+            <button type="button" class="btn" style="background-color: #0C7B93;color: white;border-radius: 20px;margin-top: 10px;" >Pay Now</button>
+         
+        </div> -->
+      
     </div>
-  </div> -->/
+    
 
-
-  <!-- <app-user-navbar></app-user-navbar>
-
-  <div class="hero">
-    <div class="parallax-layer layer-6"></div>
-    <div class="parallax-layer layer-5"></div>
-    <div class="parallax-layer layer-4"></div>
-    <div class="parallax-layer bike-1"></div>
-    <div class="parallax-layer bike-2"></div>
-    <div class="parallax-layer layer-3"></div>
-    <div class="parallax-layer layer-2"></div>
-    <div class="parallax-layer layer-1"></div>
-  </div> -->
+  </div >
+    
+    </div>
+  </div>

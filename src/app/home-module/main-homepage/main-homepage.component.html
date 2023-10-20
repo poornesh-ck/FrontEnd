@@ -22,8 +22,9 @@
                   </div>
           </div>
           <input type="submit" value="SEND OTP" class="btn solid" [disabled]="phnNo.invalid " (click)="LoginPage()" *ngIf="!Otp"/>
-          
+         
            <div class="otp" *ngIf="Otp">
+            <!-- <div class="loader" role="alert" aria-live="assertive"></div> -->
               <div class="container-fluid">
                   <div class="wrapper vh-100">
                     <div class="row align-items-center h-100">

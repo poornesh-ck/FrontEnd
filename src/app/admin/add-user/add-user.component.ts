@@ -4,6 +4,7 @@ import { AdminServiceService } from '../admin-service.service';
 import { Status } from 'src/app/modal/Status';
 import { timer } from 'rxjs';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -24,7 +25,7 @@ export class AddUserComponent {
   dob:FormControl
   plans:FormControl
   st:any
-  constructor(public pserv:AdminServiceService){
+  constructor(public pserv:AdminServiceService,public router:Router){
     this.fname=new FormControl('',[Validators.required])
     this.lname=new FormControl('',[Validators.required])
     this.mobileno=new FormControl('',[Validators.required])
@@ -55,9 +56,13 @@ export class AddUserComponent {
     if(this.st.status=='created'){
       Swal.fire(
         'Good job!',
-        'You clicked the button!',
+        'Registration Successful!',
         'success'
-      )
+      ).then(()=>{this.router.navigate(["/home"])})
+      timer(1000).subscribe(()=>{
+
+
+      })
 
     }
     else{
