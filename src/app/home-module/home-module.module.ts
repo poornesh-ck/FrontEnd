@@ -5,15 +5,21 @@ import { HomeModuleRoutingModule } from './home-module-routing.module';
 import { MainHomepageComponent } from './main-homepage/main-homepage.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 @NgModule({
   declarations: [
-    MainHomepageComponent
+    MainHomepageComponent,
+    SidenavComponent
   ],
   imports: [
     CommonModule,
     HomeModuleRoutingModule,NgOtpInputModule,FormsModule, ReactiveFormsModule
+  ],
+  exports:[
+    SidenavComponent
   ]
+  
 })
 export class HomeModuleModule { }

@@ -19,7 +19,7 @@ export class UserHomepageComponent  {
    
     });
    
-  
+
     if(this.paymentstatus=='paid'){
   
       this.value=true

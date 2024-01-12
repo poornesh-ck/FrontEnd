@@ -46,23 +46,25 @@ export class AddUserComponent {
     this.UserForm=new FormGroup({fname:this.fname,lname:this.lname,mobileno:this.mobileno,email:this.email,address:this.address,city:this.city,state:this.state,zip:this.zip,service:this.service,dob:this.dob,plans:this.plans})
 
   }
+  load:boolean=false
   submit(){
     console.log(this.UserForm.value)
     this.pserv.addUser(this.UserForm.value).subscribe((msg)=>{this.st=msg})
-
-    timer(9000).subscribe(()=>{
+    this.load=true
+    timer(4000).subscribe(()=>{
     console.log(this.st.status)
     console.log("waiting 7000");
+    this.load=false
     if(this.st.status=='created'){
       Swal.fire(
-        'Good job!',
         'Registration Successful!',
+       
         'success'
-      ).then(()=>{this.router.navigate(["/home"])})
-      timer(1000).subscribe(()=>{
+      ).then(()=>{this.router.navigate(["/main_homepage"])})
+      // timer(1000).subscribe(()=>{
 
 
-      })
+      // })
 
     }
     else{

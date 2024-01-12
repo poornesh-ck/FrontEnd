@@ -85,6 +85,7 @@ export class MainHomepageComponent {
   displayInvalid:any
   classbtn:any
   optPageRegister(){
+    this.load=true
     // this.Otp=true;
    
     console.log(this.Otp)
@@ -92,6 +93,7 @@ export class MainHomepageComponent {
     this.userv.getOtp(this.accNo.value).subscribe((msg:Status)=>{this.st=msg.status}
     )
     timer(9000).subscribe(()=>{
+    this.load=false
     console.log(this.st);
     if(this.st=='Deliverd'){
       this.optPage()
@@ -116,11 +118,14 @@ export class MainHomepageComponent {
   }
   // validation registration
   validate(){
+    this.load=true
     console.log(this.accNo.value)
     console.log(this.otp)
     this.userv.validateOtp(this.otp).subscribe((msg)=>{this.st = msg.status})
 
     timer(9000).subscribe(()=>{
+    this.load=false
+      
       console.log(this.st);
       if(this.st=='Otp valid'){
         Swal.fire(
@@ -145,10 +150,14 @@ export class MainHomepageComponent {
 
   // ---------------->end
   // Login
+  load:boolean=false
   LoginPage(){
+    this.load=true
+
     this.userv.loginOtp(this.phnNo.value).subscribe((msg:Status)=>{this.st=msg.status}
     )
     timer(9000).subscribe(()=>{
+    this.load=false
       console.log(this.st);
       if(this.st=='Deliverd'){
         this.optPage()
@@ -184,8 +193,10 @@ export class MainHomepageComponent {
   }
 
   LoginValidated(){
+    this.load=true
     this.userv.loginValidate(this.otp).subscribe((msg)=>{this.st = msg.status})
     timer(9000).subscribe(()=>{
+    this.load=false
       console.log(this.st);
       if(this.st=='Otp valid'){
         console.log('sending data');
@@ -194,7 +205,7 @@ export class MainHomepageComponent {
         
         Swal.fire(
           'Good job!',
-          'Sucessful registration',
+          'Login Successful',
           'success'
         )
         timer(1000).subscribe(()=>{

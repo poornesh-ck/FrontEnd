@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/service/user-service.service';
 import Swal from 'sweetalert2';
 
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class BillsummaryComponent implements OnInit{
 
-  constructor(private userve:UserServiceService){
+  constructor(private userve:UserServiceService,public router:Router){
   
     console.log(window.paypal)
     this.user=userve.getFromSession()
@@ -100,7 +101,7 @@ export class BillsummaryComponent implements OnInit{
      
                          amount:{
      
-                           value: 10,
+                           value: (this.bill.totalamount/83.19).toFixed(2),
      
                            currency_code: 'USD'
      
@@ -162,7 +163,7 @@ export class BillsummaryComponent implements OnInit{
       'Payment Sucess!',
       // 'yeahhhhhh!',
       'success'
-    )
+    ).then(()=>{this.router.navigate(["/home"])})
   
    }
 

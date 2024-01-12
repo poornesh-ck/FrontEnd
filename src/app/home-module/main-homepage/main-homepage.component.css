@@ -77,12 +77,16 @@ form.sign-in-form {
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
+  border: none;
+  outline: none;
 }
 
 .input-field i {
   text-align: center;
   line-height: 55px;
-  color: #acacac;
+  /* color: #acacac; */
+  border: none;
+  outline: none;
   transition: 0.5s;
   font-size: 1.1rem;
 }
@@ -761,4 +765,73 @@ body {
 
 @keyframes spin {
   to { transform: rotate(-360deg) translateY(var(--y)); }
+}
+
+/* loading */
+.loadingContainer{
+  height: 52.2rem;
+  width: 100%;
+  background-color: black;
+
+}
+/* body {
+  background:black;
+} */
+ .cargando {
+   overflow:hidden;
+   z-index: 100;
+   transform: scale(3);
+   /* background-color: black; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: buffering 1.1s infinite linear;
+    animation: buffering 1.1s infinite linear;
+    animation-name: buffering;
+    animation-duration: 1.1s;
+    animation-timing-function: linear;
+    animation-delay: initial;
+    animation-iteration-count: infinite;
+    animation-direction: initial;
+    animation-fill-mode: initial;
+    animation-play-state: initial;
+    /* z-index: 2; */
+}
+@-webkit-keyframes buffering {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes buffering {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
 }

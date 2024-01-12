@@ -16,6 +16,8 @@ import { PreBillStatComponent } from './pre-bill-stat/pre-bill-stat.component';
 import { FormsModule } from '@angular/forms';
 import { MessagingUsageComponent } from './messaging-usage/messaging-usage.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
+import { SidenavComponent } from '../home-module/sidenav/sidenav.component';
 
 
 
@@ -34,6 +36,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     PreBillStatComponent,
     MessagingUsageComponent,
     ContactUsComponent,
+    SidenavbarComponent
     
   ],
   imports: [
@@ -41,7 +44,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     UserPageModuleRoutingModule,FormsModule
   ],
   exports:[
-    UserNavbarComponent,
+    UserNavbarComponent,SidenavbarComponent
 
   ]
 })

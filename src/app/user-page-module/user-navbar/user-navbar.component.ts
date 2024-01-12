@@ -59,7 +59,7 @@ st:any
 
   checkPercentage(number: number, total: number){
     this.percentage=this.calculatePercentage(number, total)
-    if(this.percentage==50){
+    if(this.percentage>=50){
       console.log(this.percentage+'data 50')
       this.nofication.alert='Data Usage Warning'
       this.nofication.notificationName='50%'

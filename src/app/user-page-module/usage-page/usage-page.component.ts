@@ -8,6 +8,19 @@ import { UserServiceService } from 'src/app/service/user-service.service';
 })
 export class UsagePageComponent {
   constructor(userv:UserServiceService){
+  
+  userv.readCsv().subscribe((msg:any[])=>{
+    this.csvCall=msg
+    console.log(msg);
+    
+    
+  })
+  userv.readDataCsv().subscribe((msg:any[])=>{
+    this.csvData=msg
+    console.log(msg);
+
+  })
+
     this.userdetails=userv.getFromSession()
    userv.getcallDetails(this.userdetails.mobileno).subscribe((data) => {
       this.user = data;
@@ -39,7 +52,9 @@ export class UsagePageComponent {
   dataTab:boolean=true
   callTab!:boolean
   msgTab!:boolean
-  data(){
+  csvCall:any
+  csvData:any
+    data(){
     this.dataTab=true
     this.callTab=false
     this.msgTab=false

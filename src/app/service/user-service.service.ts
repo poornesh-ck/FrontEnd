@@ -116,6 +116,15 @@ export class UserServiceService {
 
   }
 
+  // csv
+  readCsv(){
+    return this.http.get<any[]>("http://localhost:8484/api/csv/call")
+  }
+
+  readDataCsv(){
+    return this.http.get<any[]>("http://localhost:8484/api/csv/data")
+  }
+
 
 
   updatePayment(mobileNo: number): Observable<any>{

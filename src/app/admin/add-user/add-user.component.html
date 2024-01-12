@@ -2,10 +2,20 @@
 
          
 
-   
+   <!-- <div class="loader" role="alert" aria-live="assertive"></div> -->
+   <!-- <div class="loadingContainer"><div class="cargando" style="display: block;"></div></div> -->
     
-<div class="whole-container">
-  <p style="margin-left: 70rem;color: blue;margin-top: 3rem; "routerLink="/FeedBack">View Feed-></p>
+<div class="whole-container" >
+  <!-- <app-sidenav></app-sidenav> -->
+  <div class="cargando" style="display: block;" *ngIf="load"></div>
+  <div style="background-color: black;height: 4rem;display: flex;" ><p style="  font-size: 32px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;padding-top: 30px;margin-left: 40px;">Aetherix </p>
+  <p style="color: white;padding-top: 30px;margin-left: 60rem; "routerLink="/mainpage"><span><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span> Home </p>  
+  </div>
+
+  
   <div class="cardd" style="display: flex;justify-content: center;margin-top: 3rem;">
     <!-- <p sty>View Feed-></p> -->
  
@@ -85,7 +95,7 @@
       
      
      <!-- <button class="transparent-button-1" style="background: #0C7B93;color: black;margin-left: 30px;width: 200px;justify-content: center;align-items: center;" routerLink="/usage">Check usage</button> -->
-      <input type="submit" class="btn" value="Sign up" (click)="submit()" style="background: #0C7B93;color: black;    margin-left: 8rem;
+      <input type="submit" class="btn" value="Register" (click)="submit()" style="background: #0C7B93;color: black;    margin-left: 8rem;
       margin-top: 1rem;" />
     </div>
   </form>
