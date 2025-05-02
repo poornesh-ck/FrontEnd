@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
       image 'node:18-alpine'
-      args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+      args '-u root'
     }
   }
   environment {
@@ -36,14 +36,17 @@ pipeline {
 stage('SonarQube Analysis') {
   steps {
     withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_TOKEN')]) {
-      sh '''
-           apk add --no-cache bash
-           npx sonar-scanner \
-          -Dsonar.projectKey=FrontEnd \
-          -Dsonar.sources=src \
-          -Dsonar.host.url=${SONAR_URL} \
-          -Dsonar.login=${SONAR_TOKEN}
-      '''
+          // Grant execute permissions to the sonar-scanner binary
+          sh 'chmod +x ./node_modules/.bin/sonar-scanner'
+          // Add bash and run the analysis
+          sh '''
+            apk add --no-cache bash
+            ./node_modules/.bin/sonar-scanner \
+              -Dsonar.projectKey=FrontEnd \
+              -Dsonar.sources=src \
+              -Dsonar.host.url=${SONAR_URL} \
+              -Dsonar.login=${SONAR_TOKEN}
+          '''
     }
   }
 }
