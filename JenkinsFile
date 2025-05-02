@@ -34,22 +34,25 @@ pipeline {
   }
 }
 stage('SonarQube Analysis') {
+  agent {
+    docker {
+      image 'sonarsource/sonar-scanner-cli:latest'
+      args '-u root'
+    }
+  }
   steps {
     withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_TOKEN')]) {
-          sh '''
-            apk add --no-cache bash dos2unix
-            export PATH=$PWD/node_modules/.bin:$PATH
-            dos2unix node_modules/sonar-scanner/bin/sonar-scanner || true
-            chmod +x node_modules/sonar-scanner/bin/sonar-scanner
-            npx sonar-scanner \
-              -Dsonar.projectKey=FrontEnd \
-              -Dsonar.sources=src \
-              -Dsonar.host.url=${SONAR_URL} \
-              -Dsonar.login=${SONAR_TOKEN}
-          '''
+      sh '''
+        sonar-scanner \
+          -Dsonar.projectKey=FrontEnd \
+          -Dsonar.sources=src \
+          -Dsonar.host.url=${SONAR_URL} \
+          -Dsonar.login=${SONAR_TOKEN}
+      '''
     }
   }
 }
+
 
     stage('Build and Push Docker Image') {
       steps {
