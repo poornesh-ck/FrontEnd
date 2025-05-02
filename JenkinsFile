@@ -1,12 +1,7 @@
 pipeline {
-  agent {
-    docker {
-      image 'node:18-alpine'
-      args '-u root'
-    }
-  }
+  agent any
   environment {
-    SONAR_URL = "http://34.70.39.54/:9000"
+    SONAR_URL = "http://34.70.39.54:9000"
     DOCKER_IMAGE = "poornesh2002/Aethreix_frontend:${BUILD_NUMBER}"
     REGISTRY_CREDENTIALS = credentials('docker-cred')
     GIT_REPO_NAME = "FrontEnd"
@@ -28,30 +23,20 @@ pipeline {
         sh 'npm run build --configuration=production'
       }
     }
-    stage('Install Sonar Scanner') {
-  steps {
-    sh 'npm install sonar-scanner --save-dev'
-  }
-}
-stage('SonarQube Analysis') {
-  agent {
-    docker {
-      image 'sonarsource/sonar-scanner-cli:latest'
-      args '-u root'
+    stage('SonarQube Analysis') {
+      steps {
+        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_TOKEN')]) {
+          sh '''
+            sonar-scanner \
+              -Dsonar.projectKey=FrontEnd \
+              -Dsonar.sources=src \
+              -Dsonar.host.url=${SONAR_URL} \
+              -Dsonar.login=${SONAR_TOKEN}
+          '''
+        }
+      }
     }
-  }
-  steps {
-    withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_TOKEN')]) {
-      sh '''
-        sonar-scanner \
-          -Dsonar.projectKey=FrontEnd \
-          -Dsonar.sources=src \
-          -Dsonar.host.url=${SONAR_URL} \
-          -Dsonar.login=${SONAR_TOKEN}
-      '''
-    }
-  }
-}
+    
 
 
     stage('Build and Push Docker Image') {
