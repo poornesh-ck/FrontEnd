@@ -7,13 +7,14 @@ pipeline {
     GIT_REPO_NAME = "FrontEnd"
     GIT_USER_NAME = "poornesh-ck"
   }
- stage('Clean Workspace') {
+ 
+
+  stages {
+    stage('Clean Workspace') {
   steps {
     deleteDir()
   }
 }
-
-  stages {
     stage('Checkout') {
       steps {
         git branch: 'main', url: 'https://github.com/poornesh-ck/FrontEnd.git'
