@@ -7,6 +7,12 @@ pipeline {
     GIT_REPO_NAME = "FrontEnd"
     GIT_USER_NAME = "poornesh-ck"
   }
+ stage('Clean Workspace') {
+  steps {
+    deleteDir()
+  }
+}
+
   stages {
     stage('Checkout') {
       steps {
