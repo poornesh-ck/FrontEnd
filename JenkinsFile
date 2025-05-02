@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
     SONAR_URL = "http://34.70.39.54:9000"
-    DOCKER_IMAGE = "poornesh2002/Aethreix_frontend:${BUILD_NUMBER}"
+    DOCKER_IMAGE = "poornesh2002/aethreix_frontend:${BUILD_NUMBER}"
     REGISTRY_CREDENTIALS = credentials('docker-cred')
     GIT_REPO_NAME = "FrontEnd"
     GIT_USER_NAME = "poornesh-ck"
