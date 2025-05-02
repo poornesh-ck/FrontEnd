@@ -37,6 +37,8 @@ stage('SonarQube Analysis') {
   steps {
     withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_TOKEN')]) {
       sh '''
+         chmod +x ./node_modules/sonar-scanner/bin/sonar-scanner
+         apk add --no-cache bash  # sonar-scanner uses bash
         ./node_modules/.bin/sonar-scanner \
           -Dsonar.projectKey=FrontEnd \
           -Dsonar.sources=src \
