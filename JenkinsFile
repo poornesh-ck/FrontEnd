@@ -28,21 +28,25 @@ pipeline {
         sh 'npm run build --configuration=production'
       }
     }
-    stage('SonarQube Analysis') {
-      steps {
-        script {
-          // Install SonarQube Scanner if not already installed
-          sh 'apk add --no-cache curl bash'  // Install necessary dependencies
-          sh 'curl -sSLo sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip'
-          sh 'unzip sonar-scanner-cli.zip'
-          sh 'mv sonar-scanner-*/ /opt/sonar-scanner'
-          sh 'chmod +x /opt/sonar-scanner/bin/sonar-scanner'
-
-          // Run SonarQube analysis using the installed scanner
-          sh '/opt/sonar-scanner/bin/sonar-scanner -Dsonar.projectKey=FrontEnd -Dsonar.sources=src -Dsonar.host.url=${SONAR_URL} -Dsonar.login=${SONAR_TOKEN}'
-        }
-      }
+    stage('Install Sonar Scanner') {
+  steps {
+    sh 'npm install sonar-scanner --save-dev'
+  }
+}
+stage('SonarQube Analysis') {
+  steps {
+    withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_TOKEN')]) {
+      sh '''
+        ./node_modules/.bin/sonar-scanner \
+          -Dsonar.projectKey=FrontEnd \
+          -Dsonar.sources=src \
+          -Dsonar.host.url=${SONAR_URL} \
+          -Dsonar.login=${SONAR_TOKEN}
+      '''
     }
+  }
+}
+
     stage('Build and Push Docker Image') {
       steps {
         script {
