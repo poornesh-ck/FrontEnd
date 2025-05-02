@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-dockerhub-username/frontend:latest
+          image: poornesh2002/aethreix_frontend:23
           ports:
             - containerPort: 80
           resources:
